@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="author" content="Bastiaan Quast" />
+
+<meta name="date" content="2015-05-29" />
+
+<title>diagonals</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<link href="data:text/css;charset=utf-8,body%7Bbackground%2Dcolor%3A%23fff%3Bmargin%3A1em%20auto%3Bmax%2Dwidth%3A700px%3Boverflow%3Avisible%3Bpadding%2Dleft%3A2em%3Bpadding%2Dright%3A2em%3Bfont%2Dfamily%3A%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3Bfont%2Dsize%3A14px%3Bline%2Dheight%3A1%2E35%7D%23header%7Btext%2Dalign%3Acenter%7D%23TOC%7Bclear%3Aboth%3Bmargin%3A0%200%2010px%2010px%3Bpadding%3A4px%3Bwidth%3A400px%3Bborder%3A1px%20solid%20%23CCCCCC%3Bborder%2Dradius%3A5px%3Bbackground%2Dcolor%3A%23f6f6f6%3Bfont%2Dsize%3A13px%3Bline%2Dheight%3A1%2E3%7D%23TOC%20%2Etoctitle%7Bfont%2Dweight%3Abold%3Bfont%2Dsize%3A15px%3Bmargin%2Dleft%3A5px%7D%23TOC%20ul%7Bpadding%2Dleft%3A40px%3Bmargin%2Dleft%3A%2D1%2E5em%3Bmargin%2Dtop%3A5px%3Bmargin%2Dbottom%3A5px%7D%23TOC%20ul%20ul%7Bmargin%2Dleft%3A%2D2em%7D%23TOC%20li%7Bline%2Dheight%3A16px%7Dtable%7Bmargin%3A1em%20auto%3Bborder%2Dwidth%3A1px%3Bborder%2Dcolor%3A%23DDDDDD%3Bborder%2Dstyle%3Aoutset%3Bborder%2Dcollapse%3Acollapse%7Dtable%20th%7Bborder%2Dwidth%3A2px%3Bpadding%3A5px%3Bborder%2Dstyle%3Ainset%7Dtable%20td%7Bborder%2Dwidth%3A1px%3Bborder%2Dstyle%3Ainset%3Bline%2Dheight%3A18px%3Bpadding%3A5px%205px%7Dtable%2C%20table%20th%2C%20table%20td%7Bborder%2Dleft%2Dstyle%3Anone%3Bborder%2Dright%2Dstyle%3Anone%7Dtable%20thead%2C%20table%20tr%2Eeven%7Bbackground%2Dcolor%3A%23f7f7f7%7Dp%7Bmargin%3A0%2E5em%200%7Dblockquote%7Bbackground%2Dcolor%3A%23f6f6f6%3Bpadding%3A0%2E25em%200%2E75em%7Dhr%7Bborder%2Dstyle%3Asolid%3Bborder%3Anone%3Bborder%2Dtop%3A1px%20solid%20%23777%3Bmargin%3A28px%200%7Ddl%7Bmargin%2Dleft%3A0%7Ddl%20dd%7Bmargin%2Dbottom%3A13px%3Bmargin%2Dleft%3A13px%7Ddl%20dt%7Bfont%2Dweight%3Abold%7Dul%7Bmargin%2Dtop%3A0%7Dul%20li%7Blist%2Dstyle%3Acircle%20outside%7Dul%20ul%7Bmargin%2Dbottom%3A0%7Dpre%2C%20code%7Bbackground%2Dcolor%3A%23f7f7f7%3Bborder%2Dradius%3A3px%3Bcolor%3A%23333%7Dpre%7Bwhite%2Dspace%3Apre%2Dwrap%3Bborder%2Dradius%3A3px%3Bmargin%3A5px%200px%2010px%200px%3Bpadding%3A10px%7Dpre%3Anot%28%5Bclass%5D%29%7Bbackground%2Dcolor%3A%23f7f7f7%7Dcode%7Bfont%2Dfamily%3AConsolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3Bfont%2Dsize%3A85%25%7Dp%20%3E%20code%2C%20li%20%3E%20code%7Bpadding%3A2px%200px%7Ddiv%2Efigure%7Btext%2Dalign%3Acenter%7Dimg%7Bbackground%2Dcolor%3A%23FFFFFF%3Bpadding%3A2px%3Bborder%3A1px%20solid%20%23DDDDDD%3Bborder%2Dradius%3A3px%3Bborder%3A1px%20solid%20%23CCCCCC%3Bmargin%3A0%205px%7Dh1%7Bmargin%2Dtop%3A0%3Bfont%2Dsize%3A35px%3Bline%2Dheight%3A40px%7Dh2%7Bborder%2Dbottom%3A4px%20solid%20%23f7f7f7%3Bpadding%2Dtop%3A10px%3Bpadding%2Dbottom%3A2px%3Bfont%2Dsize%3A145%25%7Dh3%7Bborder%2Dbottom%3A2px%20solid%20%23f7f7f7%3Bpadding%2Dtop%3A10px%3Bfont%2Dsize%3A120%25%7Dh4%7Bborder%2Dbottom%3A1px%20solid%20%23f7f7f7%3Bmargin%2Dleft%3A8px%3Bfont%2Dsize%3A105%25%7Dh5%2C%20h6%7Bborder%2Dbottom%3A1px%20solid%20%23ccc%3Bfont%2Dsize%3A105%25%7Da%7Bcolor%3A%230033dd%3Btext%2Ddecoration%3Anone%7Da%3Ahover%7Bcolor%3A%236666ff%7Da%3Avisited%7Bcolor%3A%23800080%7Da%3Avisited%3Ahover%7Bcolor%3A%23BB00BB%7Da%5Bhref%5E%3D%22http%3A%22%5D%7Btext%2Ddecoration%3Aunderline%7Da%5Bhref%5E%3D%22https%3A%22%5D%7Btext%2Ddecoration%3Aunderline%7Dcode%20%3E%20span%2Ekw%7Bcolor%3A%23555%3Bfont%2Dweight%3Abold%7Dcode%20%3E%20span%2Edt%7Bcolor%3A%23902000%7Dcode%20%3E%20span%2Edv%7Bcolor%3A%2340a070%7Dcode%20%3E%20span%2Ebn%7Bcolor%3A%23d14%7Dcode%20%3E%20span%2Efl%7Bcolor%3A%23d14%7Dcode%20%3E%20span%2Ech%7Bcolor%3A%23d14%7Dcode%20%3E%20span%2Est%7Bcolor%3A%23d14%7Dcode%20%3E%20span%2Eco%7Bcolor%3A%23888888%3Bfont%2Dstyle%3Aitalic%7Dcode%20%3E%20span%2Eot%7Bcolor%3A%23007020%7Dcode%20%3E%20span%2Eal%7Bcolor%3A%23ff0000%3Bfont%2Dweight%3Abold%7Dcode%20%3E%20span%2Efu%7Bcolor%3A%23900%3Bfont%2Dweight%3Abold%7Dcode%20%3E%20span%2Eer%7Bcolor%3A%23a61717%3Bbackground%2Dcolor%3A%23e3d2d2%7D" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+<div id="header">
+<h1 class="title">diagonals</h1>
+<h4 class="author"><em>Bastiaan Quast</em></h4>
+<h4 class="date"><em>2015-05-29</em></h4>
+</div>
+
+
+<p>Block-diagonal matrices can be extracted or removed using two small functions implemented here, in addition, non-square matrices are supported.</p>
+<p>Block diagonal matrices occur when we combine two dimensions of a data set along one edge of a matrix. For example, trade-flow data in the <a href="http://cran.r-project.org/web/packages/decompr/index.html">decompr</a> and <a href="http://cran.r-project.org/web/packages/gvc/index.html">gvc</a> package have each country-industry combination occur on each edge of the matrix.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">64</span>, <span class="dt">nrow=</span><span class="dv">8</span>)
+m</code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]
+## [1,]    1    9   17   25   33   41   49   57
+## [2,]    2   10   18   26   34   42   50   58
+## [3,]    3   11   19   27   35   43   51   59
+## [4,]    4   12   20   28   36   44   52   60
+## [5,]    5   13   21   29   37   45   53   61
+## [6,]    6   14   22   30   38   46   54   62
+## [7,]    7   15   23   31   39   47   55   63
+## [8,]    8   16   24   32   40   48   56   64</code></pre>
+<p>We can now drop everything except a block diagonal.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(diagonals)
+<span class="kw">block_matrix</span>(m, <span class="dt">steps=</span><span class="dv">4</span>)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]
+## [1,]    1    9    0    0    0    0    0    0
+## [2,]    2   10    0    0    0    0    0    0
+## [3,]    0    0   19   27    0    0    0    0
+## [4,]    0    0   20   28    0    0    0    0
+## [5,]    0    0    0    0   37   45    0    0
+## [6,]    0    0    0    0   38   46    0    0
+## [7,]    0    0    0    0    0    0   55   63
+## [8,]    0    0    0    0    0    0   56   64</code></pre>
+<p>Or drop only the block diagonal.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">minus_block_matrix</span>(m, <span class="dt">steps=</span><span class="dv">2</span>)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]
+## [1,]    0    0    0    0   33   41   49   57
+## [2,]    0    0    0    0   34   42   50   58
+## [3,]    0    0    0    0   35   43   51   59
+## [4,]    0    0    0    0   36   44   52   60
+## [5,]    5   13   21   29    0    0    0    0
+## [6,]    6   14   22   30    0    0    0    0
+## [7,]    7   15   23   31    0    0    0    0
+## [8,]    8   16   24   32    0    0    0    0</code></pre>
+<p>The number of <code>steps</code> can vary, but dimensions should be multiples of <code>steps</code>. Alternatively we can specify the size of the <code>size</code> of the step.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">block_matrix</span>(m, <span class="dt">size=</span><span class="dv">2</span>)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]
+## [1,]    1    9    0    0    0    0    0    0
+## [2,]    2   10    0    0    0    0    0    0
+## [3,]    0    0   19   27    0    0    0    0
+## [4,]    0    0   20   28    0    0    0    0
+## [5,]    0    0    0    0   37   45    0    0
+## [6,]    0    0    0    0   38   46    0    0
+## [7,]    0    0    0    0    0    0   55   63
+## [8,]    0    0    0    0    0    0   56   64</code></pre>
+<p>Even non-square matrices are supported, as long as each dimension is a multiple of size.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create the matrix</span>
+nsm &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">27</span>, <span class="dt">nrow=</span><span class="dv">9</span>, <span class="dt">ncol=</span><span class="dv">3</span> )
+
+<span class="co"># test if the dimensions are multiples of size</span>
+<span class="co"># i.e. there are no remainders after the modulo division of dimensions by steps</span>
+<span class="kw">dim</span>(nsm) %%<span class="st"> </span><span class="dv">3</span> <span class="co"># we will use 3 (three) steps</span></code></pre></div>
+<pre><code>## [1] 0 0</code></pre>
+<p>Now extract the rectangular diagonal.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rectangle_matrix</span>(nsm, <span class="dt">steps=</span><span class="dv">3</span>)</code></pre></div>
+<pre><code>##       [,1] [,2] [,3]
+##  [1,]    1    0    0
+##  [2,]    2    0    0
+##  [3,]    3    0    0
+##  [4,]    0   13    0
+##  [5,]    0   14    0
+##  [6,]    0   15    0
+##  [7,]    0    0   25
+##  [8,]    0    0   26
+##  [9,]    0    0   27</code></pre>
+<p>Or this.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rectangle_matrix</span>( <span class="kw">t</span>(nsm), <span class="dt">steps=</span><span class="dv">3</span> )</code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+## [1,]    1    2    3    0    0    0    0    0    0
+## [2,]    0    0    0   13   14   15    0    0    0
+## [3,]    0    0    0    0    0    0   25   26   27</code></pre>
+<p>Lastly, we can also choose a replacement parameter other than zero.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">block_matrix</span>(m, <span class="dt">steps=</span><span class="dv">4</span>, <span class="dt">replacement=</span>-<span class="dv">1</span>)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]
+## [1,]    1    9   -1   -1   -1   -1   -1   -1
+## [2,]    2   10   -1   -1   -1   -1   -1   -1
+## [3,]   -1   -1   19   27   -1   -1   -1   -1
+## [4,]   -1   -1   20   28   -1   -1   -1   -1
+## [5,]   -1   -1   -1   -1   37   45   -1   -1
+## [6,]   -1   -1   -1   -1   38   46   -1   -1
+## [7,]   -1   -1   -1   -1   -1   -1   55   63
+## [8,]   -1   -1   -1   -1   -1   -1   56   64</code></pre>
+<p>or</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">minus_rectangle_matrix</span>(nsm, <span class="dt">steps=</span><span class="dv">3</span>, <span class="dt">replacement=</span><span class="dv">666</span>)</code></pre></div>
+<pre><code>##       [,1] [,2] [,3]
+##  [1,]  666   10   19
+##  [2,]  666   11   20
+##  [3,]  666   12   21
+##  [4,]    4  666   22
+##  [5,]    5  666   23
+##  [6,]    6  666   24
+##  [7,]    7   16  666
+##  [8,]    8   17  666
+##  [9,]    9   18  666</code></pre>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
