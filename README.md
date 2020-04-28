@@ -1,14 +1,20 @@
 diagonals
--------------
+=========
+
 [![License](https://img.shields.io/badge/license-GPLv3-brightgreen.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
 [![CRAN Version](https://www.r-pkg.org/badges/version/diagonals)](https://cran.r-project.org/package=diagonals)
+[![R build status](https://github.com/bquast/diagonals/workflows/R-CMD-check/badge.svg)](https://github.com/bquast/diagonals/actions?workflow=R-CMD-check)
+[![Coverage Status](https://img.shields.io/codecov/c/github/bquast/diagonals/master.svg)](https://codecov.io/bquast/diagonals/diagonals?branch=master)
+[![Total RStudio Cloud Downloads](http://cranlogs.r-pkg.org/badges/grand-total/diagonals?color=brightgreen)](https://cran.r-project.org/package=diagonals)
 [![RStudio Cloud Downloads](https://cranlogs.r-pkg.org/badges/diagonals?color=brightgreen)](https://cran.r-project.org/package=diagonals)
-[![Travis-CI Build Status](https://travis-ci.org/bquast/diagonals.svg?branch=master)](https://travis-ci.org/bquast/diagonals) 
-[![Coverage Status](https://coveralls.io/repos/github/bquast/diagonals/badge.svg?branch=master)](https://coveralls.io/github/bquast/diagonals?branch=master)
 
 Block-diagonal matrices can be extracted or removed using two small functions implemented here, in addition, non-square matrices are supported.
 
 Block diagonal matrices occur when we combine two dimensions of a data set along one edge of a matrix. For example, trade-flow data in the [decompr](https://cran.r-project.org/package=decompr) and [gvc](https://cran.r-project.org/package=gvc) package have each country-industry combination occur on each edge of the matrix.
+
+Demonstration
+-------------
+![diagonals demonstration](https://github.com/bquast/R-demo-GIFs/blob/master/diagonals.gif)
 
 
 Installation
@@ -22,8 +28,8 @@ install.packages("diagonals")
 The development version, to be used **at your peril**, can be installed using:
 
 ```r
-if (!require('devtools')) install.packages('devtools')
-devtools::install_github("bquast/diagonals")
+if (!require('remotes')) install.packages('remotes')
+remotes::install_github("bquast/diagonals")
 ```
 
 
@@ -73,7 +79,7 @@ https://qua.st/diagonals/
 
 Development
 -------------
-Development takes place on the [GitHub](https://github.com/) page.
+Development takes place on the GitHub page.
 
 https://github.com/bquast/diagonals
 

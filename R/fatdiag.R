@@ -58,7 +58,7 @@ fatdiag <- function( x = 1, steps=NULL, size=NULL, nrow=NULL, ncol=NULL) {
       dx <- as.vector( c(nrow,ncol) )
     } else if ( !is.null(nrow) && is.null(ncol)) {
       if ("common denominator x and nrow")
-        stop("nrow and x do not havea common denominator")
+        stop("nrow and x do not have a common denominator")
       dx <- as.vector(c(nrow, x))
     } else if ( is.null(nrow) && !is.null(ncol)) {
       if ("common denominator x and ncol")
@@ -107,7 +107,7 @@ fatdiag <- function( x = 1, steps=NULL, size=NULL, nrow=NULL, ncol=NULL) {
 #' @describeIn fatdiag the set version of fatdiag
 #' @title fatdiag set
 #' @aliases fatdiag
-#' @param on_diagonal should the operation be apply to the elements on the fat diagonal.
+#' @param on_diagonal should the operation be applied to the elements on the fat diagonal.
 #' @param value replacement value
 #' @export
 `fatdiag<-` <- function( x, steps = NULL, size = NULL, on_diagonal=TRUE, value ) {
